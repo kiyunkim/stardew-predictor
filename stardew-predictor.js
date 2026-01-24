@@ -9039,7 +9039,7 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 						}
 						switch(rng.Next(5)) {
 							case 0: bundleItem[2] = wikify("Fairy Dust"); bundleQty[2] = 7; break;
-							case 1: bundleItem[2] = '<span class="book">' + wikify('Book of the Stars') + '</span>'; break;
+							case 1: bundleItem[2] = '<span class="book">' + wikify('Book Of Stars') + '</span>'; break;
 							case 2: bundleItem[2] = 'Next unshipped item<br/>OR<br/>' + wikify('Mystery Box'); bundleQty[2] = '1<br/>OR<br/>5'; break;
 							case 3: bundleItem[2] = wikify("Stardrop Tea"); break;
 							case 4: bundleItem[2] = "Raccoon Seeds"; bundleQty[2] = 25; break;
