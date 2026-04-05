@@ -1,0 +1,107 @@
+body {
+  background-color: #80a0f0; /* fallback color if gradients are not supported */
+  background-image: -webkit-linear-gradient(
+    top,
+    #80a0f0,
+    #c0ffff,
+    #40c040
+  ); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+  background-image: -moz-linear-gradient(
+    top,
+    #80a0f0,
+    #c0ffff,
+    #40c040
+  ); /* For Firefox (3.6 to 15) */
+  background-image: -o-linear-gradient(
+    top,
+    #80a0f0,
+    #c0ffff,
+    #40c040
+  ); /* For old Opera (11.1 to 12.0) */
+  background-image: linear-gradient(
+    to bottom,
+    #80a0f0,
+    #c0ffff,
+    #40c040
+  ); /* Standard syntax; must be last */
+  color: #222;
+}
+
+/* Utils */
+.initial_hide {
+  display: none;
+}
+progress {
+  width: 100%;
+}
+
+/* Text styling */
+.note {
+  font-style: italic;
+}
+.path {
+  font-family: monospace;
+}
+
+/* Layout */
+.panel {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid #fff;
+  margin: 16px auto;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* Specifics */
+#file_select {
+  font-weight: bold;
+}
+.changelog {
+  font-size: 14px;
+}
+
+/* Tabs */
+.tabset {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabset label {
+  width: 100px;
+}
+
+.tabset input[type="radio"] {
+  width: 0;
+  position: absolute;
+  left: -200vw;
+}
+
+.tab-panel {
+  display: none;
+}
+
+/* This needs new entries every time we add a new tab */
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6),
+.tabset > input:nth-child(13):checked ~ .tab-panels > .tab-panel:nth-child(7),
+.tabset > input:nth-child(15):checked ~ .tab-panels > .tab-panel:nth-child(8),
+.tabset > input:nth-child(17):checked ~ .tab-panels > .tab-panel:nth-child(9),
+.tabset > input:nth-child(19):checked ~ .tab-panels > .tab-panel:nth-child(10),
+.tabset > input:nth-child(21):checked ~ .tab-panels > .tab-panel:nth-child(11),
+.tabset > input:nth-child(23):checked ~ .tab-panels > .tab-panel:nth-child(12),
+.tabset > input:nth-child(25):checked ~ .tab-panels > .tab-panel:nth-child(13),
+.tabset > input:nth-child(27):checked ~ .tab-panels > .tab-panel:nth-child(14),
+.tabset > input:nth-child(29):checked ~ .tab-panels > .tab-panel:nth-child(15),
+.tabset > input:nth-child(31):checked ~ .tab-panels > .tab-panel:nth-child(16),
+.tabset > input:nth-child(33):checked ~ .tab-panels > .tab-panel:nth-child(17),
+.tabset > input:nth-child(35):checked ~ .tab-panels > .tab-panel:nth-child(18),
+.tabset > input:nth-child(37):checked ~ .tab-panels > .tab-panel:nth-child(19),
+.tabset > input:nth-child(39):checked ~ .tab-panels > .tab-panel:nth-child(20),
+.tabset > input:nth-child(41):checked ~ .tab-panels > .tab-panel:nth-child(21),
+.tabset > input:nth-child(43):checked ~ .tab-panels > .tab-panel:nth-child(22) {
+  display: block;
+}
