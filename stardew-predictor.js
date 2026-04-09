@@ -20,6 +20,8 @@
     }(window.location.search.substr(1).split('&')));
 }(jQuery));
 
+const IMAGE_PATH = './images';
+
 window.onload = function () {
 	"use strict";
 
@@ -4161,7 +4163,7 @@ window.onload = function () {
 						tclass = "future";
 					}
 				}
-				var mushroomText = '<img src="blank.png" class="small-icon" alt="Mushroom" id="icon_m">&nbsp;';
+				var mushroomText = '<img src="./images/blank.png" class="small-icon" alt="Mushroom" id="icon_m">&nbsp;';
 				if (rainbowLights.length === 0) {
 					mushroomText = '<span class="none">' + mushroomText + 'None</span>';
 				} else {
@@ -6720,7 +6722,7 @@ window.onload = function () {
 						rng = new CSRandom(getRandomSeed(numOpened, save.gameID/2, 0));
 						$('#mystery-note').html('Note: No players found; predictions will not be reliable for game version >= 1.6');
 					}
-					
+
 					var i, j, prewarm_amount2 = rng.Next(1,10);
 					for (j = 0; j < prewarm_amount2; j++) {
 						rng.NextDouble();
@@ -8000,6 +8002,9 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 	}
 
 	function predictGreenRain(isSearch, offset) {
+    const rainIcon = `<img src="${IMAGE_PATH}/weather/rain.gif" class="icon rain" alt="Rain">`;
+    const sunIcon = `<img src="${IMAGE_PATH}/weather/sun.gif" class="icon sun" alt="Sun">`;
+
 		// Green Rain Day determined by StardewValley.Utility.getDayOfGreenRainThisSummer()
 		// Some weather effects determined by Data/LocationContexts
 		// Overrides in StardewValley.GameData.getWeatherModificationsForDate()
@@ -8062,7 +8067,7 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 				} else if (day == 3) {
 					weatherTown = 'Rain';
 				} else if (festivalDays.hasOwnProperty(day % 112)) {
-					weatherTown = festivalDays[day % 112];
+					weatherTown = `<span class="festival">${festivalDays[day % 112]}</span>`;
 				} else {
 					switch(season) {
 						case 0:
@@ -8096,15 +8101,24 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 				} else {
 					tclass = "future";
 				}
-				var icon = (weatherTown == 'Rain' || weatherTown == 'Green Rain' || weatherTown == 'Storm') ?
-					'<img src="blank.png" class="icon" alt="Clear" id="w_rain">' :
-					'<img src="blank.png" class="icon" alt="Umbrella in rain" id="w_sun">';
-				output += '<td class="' + tclass + '"><span class="date"> ' + (day - offset) + '</span><br/>' +
-					'<span class="cell">' + icon + weatherTown + '</span></td>';
+        const isRain = weatherTown == 'Rain' || weatherTown == 'Green Rain' || weatherTown == 'Storm';
+        const icon = isRain ? rainIcon : sunIcon;
+        output += `
+          <td class="${tclass}">
+            <span class="date">${day - offset}</span>
+            <span>${icon}</span>
+            <span>${weatherTown}</span>
+          </td>
+        `;
 			}
 			output += "</tr>\n";
 		}
-		output += '<tr><td colspan="7" class="legend"><img src="blank.png" class="icon" alt="Umbrella in rain" id="w_rain"> Rainy weather. "Rain" could become Storm.<br/><img src="blank.png" class="icon" alt="Shining Sun" id="w_sun"> Clear weather. "Sun" could become Wind or Snow.</td></tr>';
+		output += `
+    <tr><td colspan="7" class="legend">
+      ${rainIcon} Rainy weather. "Rain" could become Storm.
+      ${sunIcon} Clear weather. "Sun" could become Wind or Snow.
+    </td></tr>
+    `;
 		output += "</tbody></table>\n";
 
 		return output;
@@ -9136,9 +9150,9 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 	}
 
 	function initializeHandlers() {
-		$("button[class='browse']").click(function () { buttonHandler(this); });
-		$("button[class='search']").click(function () { searchHandler(this); });
-		$("input[class='search']").keyup(function(e) {
+		$("button.browse").click(function () { buttonHandler(this); });
+		$("button.search").click(function () { searchHandler(this); });
+		$("input.search").keyup(function(e) {
 			if (e.keyCode === 13) {
 				e.preventDefault();
 				searchHandler(this);

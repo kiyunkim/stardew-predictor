@@ -1,0 +1,17 @@
+
+
+:root {
+  --font-size: 14px;
+
+
+  --bs-body-font-size: var(--font-size);
+  --bs-code-color: #0c53cd;
+}
+
+.btn {
+  --bs-btn-font-size: var(--font-size);
+  --bs-btn-padding-x: 0.7rem;
+  --bs-btn-padding-y: 0.3rem;
+  --bs-btn-disabled-opacity:0.4;
+  --bs-btn-disabled-bg: #ccc;
+}
