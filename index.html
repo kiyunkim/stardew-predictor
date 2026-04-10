@@ -23,6 +23,8 @@
 
   <link rel="stylesheet" type="text/css" href="./styles/bootstrap-overrides.css" />
   <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+  <link rel="stylesheet" type="text/css" href="./styles/tabs.css" />
+  <link rel="stylesheet" type="text/css" href="./styles/tables.css" />
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -36,7 +38,7 @@
 </head>
 
 <body>
-  <div class="container-lg">
+  <div class="container-lg px-2">
 
     <div id="TOC" class="d-none">
       <h1>Navigation</h1>
@@ -44,7 +46,7 @@
       </div>
     </div>
 
-    <h1 class="fw-bold my-3">Stardew Predictor</h1>
+    <h1 class="fw-bold my-1 my-md-3 text-white">Stardew Predictor</h1>
 
     <div id="header" class="panel d-none">
       <h2>About</h2>
@@ -57,10 +59,10 @@
     </div>
 
     <div id="input-container" class="panel">
-      <h2 id="sec_save_file">Save File</h2>
+      <h2 id="sec_save_file" class="h4">Save File</h2>
 
       <p>Select a save file to check:</p>
-      <div class="card p-2 mb-3 d-inline-block">
+      <div class="card p-2 d-inline-block">
         <input type="file" id="file_select" />
       </div>
 
@@ -75,7 +77,9 @@
         </ul>
       </div>
 
-      <h3 id="advanced_usage">Advanced Usage</h3>
+      <hr>
+
+      <h3 id="advanced_usage" class="h6">Advanced Usage</h3>
       <p>The vast majority of players will just load their save above and not worry about anything else. However occasionally someone may want to check out certain game seeds and/or override some of the values in their save. This is done by adding URL parameters which are explained below.</p>
 
       <div id="advanced_param" class="collapsible">
@@ -277,17 +281,17 @@
     </div>
 
     <div id="output-container" class="panel initial_hide">
-      <h2 id="sec_results">Results</h2>
+      <h2 id="sec_results" class="h4">Results</h2>
 
       <p class="note" id="results-note"></p>
-      <output id="out-summary" class="d-none"> </output>
+      <output id="out-summary"></output>
 
       <div id="tabset-div" class="tabset">
-        <input type="radio" name="tabset" id="tab-book" class="btn-check" checked>
+        <input type="radio" name="tabset" id="tab-book" class="btn-check">
         <label for="tab-book" class="btn btn-outline-primary">Bookseller</label>
-        <input type="radio" name="tabset" id="tab-cj" class="btn-check" checked>
+        <input type="radio" name="tabset" id="tab-cj" class="btn-check">
         <label for="tab-cj" class="btn btn-outline-primary">Calico Jack</label>
-        <input type="radio" name="tabset" id="tab-crane" class="btn-check" checked>
+        <input type="radio" name="tabset" id="tab-crane" class="btn-check" >
         <label for="tab-crane" class="btn btn-outline-primary">Crane Game</label>
         <input type="radio" name="tabset" id="tab-makeover" class="btn-check">
         <label for="tab-makeover" class="btn btn-outline-primary">Desert Festival</label>
@@ -838,11 +842,11 @@
             <p class="note" id="greenrain-note"></p>
             <fieldset id="greenrain-buttons">
               <div class="buttons">
-                <button id="greenrain-prev-year" type="button" class="browse btn btn-outline-secondary">&lt;&lt; Previous Year</button>
-                <button id="greenrain-prev-month" type="button" class="browse btn btn-outline-secondary">&lt; Previous Month</button>
+                <button id="greenrain-prev-year" type="button" class="browse btn btn-outline-dark">&lt;&lt; Previous Year</button>
+                <button id="greenrain-prev-month" type="button" class="browse btn btn-outline-dark">&lt; Previous Month</button>
                 <button id="greenrain-reset" type="button" class="browse btn btn-outline-danger">Reset Calendar</button>
-                <button id="greenrain-next-month" type="button" class="browse btn btn-outline-secondary">Next Month &gt;</button>
-                <button id="greenrain-next-year" type="button" class="browse btn btn-outline-secondary">Next Year &gt;&gt;</button>
+                <button id="greenrain-next-month" type="button" class="browse btn btn-outline-dark">Next Month &gt;</button>
+                <button id="greenrain-next-year" type="button" class="browse btn btn-outline-dark">Next Year &gt;&gt;</button>
               </div>
             </fieldset>
             <output id="out-greenrain"> </output>
@@ -871,7 +875,7 @@
 
     <div id="changelog" class="panel changelog">
       <noscript><span class="error">Javascript appears to be unsupported by or disabled in your browser. Stardew Predictor will not work without it.</span></noscript>
-      <h2 id="sec_changelog">Changelog</h2>
+      <h2 id="sec_changelog" class="h4">Changelog</h2>
       <ul>
         <li>20 Apr 2024 - v5.0.8 - Fixed advanced usage breaking after last update; better mp sanity-checking</li>
         <li>18 Apr 2024 - v5.0.7 - One more seed overflow fix, changes for patch 1.6.4, support for compressed Switch saves</li>

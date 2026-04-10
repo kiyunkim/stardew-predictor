@@ -8002,34 +8002,32 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 	}
 
 	function predictGreenRain(isSearch, offset) {
-    const rainIcon = `<img src="${IMAGE_PATH}/weather/rain.gif" class="icon rain" alt="Rain">`;
-    const sunIcon = `<img src="${IMAGE_PATH}/weather/sun.gif" class="icon sun" alt="Sun">`;
 
 		// Green Rain Day determined by StardewValley.Utility.getDayOfGreenRainThisSummer()
 		// Some weather effects determined by Data/LocationContexts
 		// Overrides in StardewValley.GameData.getWeatherModificationsForDate()
-		var output = "",
-			grDays = [ 5, 6, 7, 14, 15, 16, 18, 23 ],
-			festivalDays = {
-				13: "Egg Festival",
-				24: "Flower Dance",
-				39: "Luau",
-				48: "Trout Derby",
-				49: "Trout Derby",
-				56: "Moonlight Jellies",
-				72: "Stardew Valley Fair",
-				83: "Sprit's Eve",
-				92: "Festival of Ice",
-				96: "Squid Fest",
-				97: "Squid Fest",
-				99: "Night Market",
-				100: "Night Market",
-				101: "Night Market",
-				109: "Winter Star"
-			},
-			year,
-			rng,
-			tclass;
+    var output = "",
+        grDays = [ 5, 6, 7, 14, 15, 16, 18, 23 ],
+        festivalDays = {
+          13: "Egg Festival",
+          24: "Flower Dance",
+          39: "Luau",
+          48: "Trout Derby",
+          49: "Trout Derby",
+          56: "Moonlight Jellies",
+          72: "Stardew Valley Fair",
+          83: "Sprit's Eve",
+          92: "Festival of Ice",
+          96: "Squid Fest",
+          97: "Squid Fest",
+          99: "Night Market",
+          100: "Night Market",
+          101: "Night Market",
+          109: "Winter Star"
+        },
+        year,
+        rng,
+        tclass;
 
 		if (typeof(offset) === 'undefined') {
 			offset = 28 * Math.floor(save.daysPlayed/28);
@@ -8052,11 +8050,30 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 		var month = Math.floor(offset / 28);
 		var season = month % 4;
 		var monthName = save.seasonNames[season];
+    const seasonIcon = `<img class="season-icon" src="${IMAGE_PATH}/${monthName.toLowerCase()}.png" alt="${monthName}" />`;
 		var year = 1 + Math.floor(offset / 112);
 		var rng = new CSRandom(getRandomSeed(year * 777, save.gameID));
 		var greenRainDay = grDays[rng.Next(grDays.length)];
-		output += '<table class="calendar"><thead><tr><th colspan="7">' + monthName + ' Year ' + year + '</th></tr>\n';
-		output += '<tr><th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>Sa</th><th>Su</th></tr></thead>\n<tbody>';
+
+    output += `
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th colspan="7" class="season-header ${monthName.toLowerCase()}">${seasonIcon} ${monthName} Year ${year}</th>
+        </tr>
+    `;
+    output += `
+      <tr>
+        <th>M</th>
+        <th>T</th>
+        <th>W</th>
+        <th>Th</th>
+        <th>F</th>
+        <th>Sa</th>
+        <th>Su</th>
+      </tr>
+      </thead>
+    `;
 		for (var week = 0; week < 4; week++) {
 			output += "<tr>";
 			for (var weekDay = 1; weekDay < 8; weekDay++) {
@@ -8067,7 +8084,7 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 				} else if (day == 3) {
 					weatherTown = 'Rain';
 				} else if (festivalDays.hasOwnProperty(day % 112)) {
-					weatherTown = `<span class="festival">${festivalDays[day % 112]}</span>`;
+					weatherTown = 'Sun';
 				} else {
 					switch(season) {
 						case 0:
@@ -8101,23 +8118,26 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 				} else {
 					tclass = "future";
 				}
-        const isRain = weatherTown == 'Rain' || weatherTown == 'Green Rain' || weatherTown == 'Storm';
-        const icon = isRain ? rainIcon : sunIcon;
+
+        const iconPath = `${IMAGE_PATH}/weather/${weatherTown.toLowerCase().replace(' ', '-')}.gif`;
+        const icon = `<img class="icon ${weatherTown}" src="${iconPath}" alt="${weatherTown}">`;
         output += `
           <td class="${tclass}">
             <span class="date">${day - offset}</span>
-            <span>${icon}</span>
-            <span>${weatherTown}</span>
+            <span class="calendar-weather">${icon} ${weatherTown}</span>
+            <span class="calendar-festival">${festivalDays[day % 112] || ''}</span>
           </td>
         `;
 			}
 			output += "</tr>\n";
 		}
 		output += `
-    <tr><td colspan="7" class="legend">
-      ${rainIcon} Rainy weather. "Rain" could become Storm.
-      ${sunIcon} Clear weather. "Sun" could become Wind or Snow.
-    </td></tr>
+      <tr>
+        <td colspan="7" class="legend">
+          Rainy weather. "Rain" could become Storm.
+          Clear weather. "Sun" could become Wind or Snow.
+        </td>
+      </tr>
     `;
 		output += "</tbody></table>\n";
 

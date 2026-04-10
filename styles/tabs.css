@@ -1,0 +1,127 @@
+.tabset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tabset label {
+  padding-left: 32px;
+  background-size: auto 24px;
+  background-position: 5px 3px;
+  background-repeat: no-repeat;
+}
+
+.tabset input[type="radio"] {
+  width: 0;
+  position: absolute;
+  left: -200vw;
+}
+
+.tab-panels {
+  margin-top: 8px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+/* Individual tabs */
+#tab-book + label {
+  background-image: url('../images/tabs/bookseller.png');
+}
+#tab-cj + label {
+  background-image: url('../images/tabs/calicojack.png');
+}
+#tab-crane + label {
+  background-image: url('../images/tabs/crane.png');
+}
+#tab-makeover + label {
+  background-image: url('../images/tabs/calicoegg.png');
+}
+#tab-enchant + label {
+  background-image: url('../images/tabs/enchant.png');
+}
+#tab-trash + label {
+  background-image: url('../images/tabs/trash.png');
+  background-position: 8px 3px;
+}
+#tab-gembirds + label {
+  background-image: url('../images/tabs/gembird.png');
+}
+#tab-geode + label {
+  background-image: url('../images/tabs/geode.png');
+}
+#tab-krobus + label {
+  background-image: url('../images/tabs/krobus.png');
+}
+#tab-mines + label {
+  background-image: url('../images/tabs/mines.png');
+}
+#tab-minechest + label {
+  background-image: url('../images/tabs/minechest.png');
+  background-position: 8px 3px;
+}
+#tab-mystery + label {
+  background-image: url('../images/tabs/mystery.png');
+}
+#tab-night + label {
+  background-image: url('../images/tabs/night.png');
+}
+#tab-prize + label {
+  background-image: url('../images/tabs/prize.png');
+}
+#tab-raccoon + label {
+  background-image: url('../images/raccoon.png');
+}
+/* #tab-resort + label {} */
+#tab-sandy + label {
+  background-image: url('../images/tabs/sandy.png');
+}
+#tab-statue + label {
+  background-image: url('../images/tabs/statue.png');
+}
+#tab-train + label {
+  background-image: url('../images/train.png');
+  background-size: 30px auto;
+  background-position: 6px 8px;
+  padding-left: 38px;
+}
+#tab-cart + label {
+  background-image: url('../images/tabs/cart.png');
+}
+#tab-wallpaper + label {
+  background-image: url('../images/tabs/catalog.png');
+  background-position: 10px 3px;
+}
+#tab-greenrain + label {
+  background-image: url('../images/weather/rain.gif');
+}
+#tab-winterstar + label {
+  background-image: url('../images/tabs/winterstar.png');
+}
+
+/* This needs new entries every time we add a new tab */
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6),
+.tabset > input:nth-child(13):checked ~ .tab-panels > .tab-panel:nth-child(7),
+.tabset > input:nth-child(15):checked ~ .tab-panels > .tab-panel:nth-child(8),
+.tabset > input:nth-child(17):checked ~ .tab-panels > .tab-panel:nth-child(9),
+.tabset > input:nth-child(19):checked ~ .tab-panels > .tab-panel:nth-child(10),
+.tabset > input:nth-child(21):checked ~ .tab-panels > .tab-panel:nth-child(11),
+.tabset > input:nth-child(23):checked ~ .tab-panels > .tab-panel:nth-child(12),
+.tabset > input:nth-child(25):checked ~ .tab-panels > .tab-panel:nth-child(13),
+.tabset > input:nth-child(27):checked ~ .tab-panels > .tab-panel:nth-child(14),
+.tabset > input:nth-child(29):checked ~ .tab-panels > .tab-panel:nth-child(15),
+.tabset > input:nth-child(31):checked ~ .tab-panels > .tab-panel:nth-child(16),
+.tabset > input:nth-child(33):checked ~ .tab-panels > .tab-panel:nth-child(17),
+.tabset > input:nth-child(35):checked ~ .tab-panels > .tab-panel:nth-child(18),
+.tabset > input:nth-child(37):checked ~ .tab-panels > .tab-panel:nth-child(19),
+.tabset > input:nth-child(39):checked ~ .tab-panels > .tab-panel:nth-child(20),
+.tabset > input:nth-child(41):checked ~ .tab-panels > .tab-panel:nth-child(21),
+.tabset > input:nth-child(43):checked ~ .tab-panels > .tab-panel:nth-child(22) {
+  display: block;
+}

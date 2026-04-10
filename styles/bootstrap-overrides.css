@@ -6,6 +6,7 @@
 
   --bs-body-font-size: var(--font-size);
   --bs-code-color: #0c53cd;
+  --bs-btn-disabled-bg: #ccc;
 }
 
 .btn {

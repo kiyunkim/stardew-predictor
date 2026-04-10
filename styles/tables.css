@@ -1,0 +1,76 @@
+
+/* Tables */
+thead tr:first-child th {
+  font-size: 1.2rem;
+  padding: 8px 0;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid #333;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 8px;
+}
+
+/* Calendar */
+.calendar {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.calendar .season-icon {
+  width: auto;
+  height: auto;
+}
+
+.calendar td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0;
+}
+
+.calendar .season-header {
+  color: var(--bs-body-color);
+}
+
+.calendar .season-header.spring {
+  background-color: #ffd1ff;
+}
+
+.calendar .season-header.summer {
+  background-color: #ffe875;
+}
+
+.calendar .season-header.fall {
+  background-color: #fe9e45;
+}
+
+.calendar .season-header.winter {
+  background-color: #89c7ff;
+}
+
+.calendar .calendar-weather {
+  white-space: nowrap;
+}
+
+.calendar .calendar-festival {
+  font-size: 0.8rem;
+  font-style: italic;
+  min-height: 1.2rem;
+  display: block;
+}
+
+.calendar .past {
+  filter: brightness(0.9);
+  background-color: var(--bs-btn-disabled-bg);
+}

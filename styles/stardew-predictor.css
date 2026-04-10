@@ -124,32 +124,17 @@
   padding: 0;
 }
 #TOC li a {
-  color: #60300;
   text-decoration: none;
 }
 #TOC li a:hover {
   background-color: #ffe0b0;
 }
-#tabset-div {
-  padding: 15px;
-}
+
 .tabset > input[type="radio"] {
   position: absolute;
   left: -200vw;
 }
 
-th,
-td {
-  border: 1px solid black;
-  text-align: center;
-}
-th {
-  color: white;
-  background-color: #333;
-}
-td {
-  color: black;
-}
 table.output th,
 table.output td {
   padding: 3px 8px;
@@ -163,11 +148,9 @@ td.compact {
   color: #603000;
   vertical-align: top;
 }
-tr.past > td,
-td.past,
 td.count {
-  background-color: #ccc;
-  color: #333;
+  background-color: #eee;
+  color: #666;
 }
 tr.current > td,
 td.current {
