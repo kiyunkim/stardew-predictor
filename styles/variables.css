@@ -1,0 +1,35 @@
+
+
+:root {
+  --font-size: 14px;
+  --grey-100: #f3f3f3;
+  --grey-200: #eee;
+  --grey-300: #ddd;
+  --grey-400: #ccc;
+  --grey-500: #aaa;
+  --grey-600: #999;
+  --grey-700: #777;
+  --grey-800: #555;
+  --grey-900: #333;
+  --black: #111;
+
+  --highlight-bg: #ffe0b0;
+
+  --spring-bg: #ffd1ff;
+  --summer-bg: #ffe875;
+  --fall-bg: #fe9e45;
+  --winter-bg: #89c7ff;
+
+
+  --bs-body-font-size: var(--font-size);
+  --bs-code-color: #0c53cd;
+  --bs-btn-disabled-bg: var(--grey-400);
+}
+
+.btn {
+  --bs-btn-font-size: var(--font-size);
+  --bs-btn-padding-x: 0.7rem;
+  --bs-btn-padding-y: 0.3rem;
+  --bs-btn-disabled-opacity:0.4;
+  --bs-btn-disabled-bg: var(--grey-400);
+}

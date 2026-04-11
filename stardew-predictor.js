@@ -8001,11 +8001,76 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 		return output;
 	}
 
+  // Green Rain Day determined by StardewValley.Utility.getDayOfGreenRainThisSummer()
+  // Some weather effects determined by Data/LocationContexts
+  // Overrides in StardewValley.GameData.getWeatherModificationsForDate()
 	function predictGreenRain(isSearch, offset) {
+    const DEFAULT_FESTIVAL_IMG = `${IMAGE_PATH}/calendar/festival.gif`;
+    const FISH_FESTIVAL_IMG = `${IMAGE_PATH}/calendar/festival-fish.png`;
+    const SPECIAL_FESTIVAL_IMG = `${IMAGE_PATH}/calendar/festival-special.png`;
 
-		// Green Rain Day determined by StardewValley.Utility.getDayOfGreenRainThisSummer()
-		// Some weather effects determined by Data/LocationContexts
-		// Overrides in StardewValley.GameData.getWeatherModificationsForDate()
+    const desertFestival = {
+      name: 'Desert Festival',
+      icon: SPECIAL_FESTIVAL_IMG,
+    };
+    const troutDerby = {
+      name: 'Trout Derby',
+      icon: FISH_FESTIVAL_IMG,
+    };
+    const squidFest = {
+      name: 'Squid Fest',
+      icon: FISH_FESTIVAL_IMG,
+    };
+    const nightMarket = {
+      name: 'Night Market',
+      icon: SPECIAL_FESTIVAL_IMG,
+    };
+
+    const festivals = {
+      13: {
+        name: 'Egg Festival',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      15: desertFestival,
+      16: desertFestival,
+      17: desertFestival,
+      24: {
+        name: 'Flower Dance',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      39: {
+        name: 'Luau',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      48: troutDerby,
+      49: troutDerby,
+      56: {
+        name: 'Moonlight Jellies',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      72: {
+        name: 'Stardew Valley Fair',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      83: {
+        name: 'Sprit\'s Eve',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      92: {
+        name: 'Festival of Ice',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+      96: squidFest,
+      97: squidFest,
+      99: nightMarket,
+      100: nightMarket,
+      101: nightMarket,
+      109: {
+        name: 'Winter Star',
+        icon: DEFAULT_FESTIVAL_IMG,
+      },
+    };
+
     var output = "",
         grDays = [ 5, 6, 7, 14, 15, 16, 18, 23 ],
         festivalDays = {
@@ -8083,7 +8148,7 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 					weatherTown = 'Sun';
 				} else if (day == 3) {
 					weatherTown = 'Rain';
-				} else if (festivalDays.hasOwnProperty(day % 112)) {
+				} else if (festivals.hasOwnProperty(day % 112)) {
 					weatherTown = 'Sun';
 				} else {
 					switch(season) {
@@ -8124,8 +8189,11 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
         output += `
           <td class="${tclass}">
             <span class="date">${day - offset}</span>
-            <span class="calendar-weather">${icon} ${weatherTown}</span>
-            <span class="calendar-festival">${festivalDays[day % 112] || ''}</span>
+            <span class="weather">${icon} ${weatherTown}</span>
+            <span class="festival d-flex align-items-center">
+              <img class="festival-icon ${festivals[day % 112] ? '' : 'd-none'}" src="${festivals[day % 112]?.icon || DEFAULT_FESTIVAL_IMG}" alt="${festivals[day % 112]?.name || ''}" />
+              ${festivals[day % 112]?.name || ''}
+            </span>
           </td>
         `;
 			}

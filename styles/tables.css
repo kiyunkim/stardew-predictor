@@ -6,13 +6,13 @@ thead tr:first-child th {
 }
 
 th {
-  background-color: #333;
+  background-color: var(--grey-900);
   color: #fff;
   text-align: center;
 }
 
 th, td {
-  border: 1px solid #333;
+  border: 1px solid var(--grey-900);
 }
 
 .buttons {
@@ -33,44 +33,77 @@ th, td {
   height: auto;
 }
 
-.calendar td {
-  text-align: left;
-  vertical-align: top;
-  padding: 0;
-}
-
 .calendar .season-header {
   color: var(--bs-body-color);
 }
 
 .calendar .season-header.spring {
-  background-color: #ffd1ff;
+  background-color: var(--spring-bg);
 }
 
 .calendar .season-header.summer {
-  background-color: #ffe875;
+  background-color: var(--summer-bg);
 }
 
 .calendar .season-header.fall {
-  background-color: #fe9e45;
+  background-color: var(--fall-bg);
 }
 
 .calendar .season-header.winter {
-  background-color: #89c7ff;
+  background-color: var(--winter-bg);
 }
 
-.calendar .calendar-weather {
+.calendar td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0;
+  position: relative;
+}
+
+.calendar .date {
+  font-size: 0.8rem;
+  display: inline-block;
+  text-align: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border: 1px solid var(--black);
+  border-width: 0 1px 1px 0;
+}
+
+.calendar .past::after {
+  opacity: 0.4;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--grey-700);
+}
+
+.calendar .current,
+.calendar .current .date {
+  background-color: var(--highlight-bg);
+}
+
+.calendar .weather {
   white-space: nowrap;
 }
 
-.calendar .calendar-festival {
+.calendar .festival {
   font-size: 0.8rem;
   font-style: italic;
-  min-height: 1.2rem;
+  min-height: 2rem;
   display: block;
+  margin: 4px 0 2px;
 }
 
-.calendar .past {
-  filter: brightness(0.9);
-  background-color: var(--bs-btn-disabled-bg);
+.calendar .festival-icon {
+  width: auto;
+  height: 0.8rem;
+  vertical-align: middle;
+  margin: 0 4px 2px;
 }

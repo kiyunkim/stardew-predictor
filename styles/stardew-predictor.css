@@ -152,19 +152,6 @@ td.count {
   background-color: #eee;
   color: #666;
 }
-tr.current > td,
-td.current {
-  background-color: #ffe0b0;
-}
-.date {
-  display: inline-block;
-  border-style: solid;
-  border-color: black;
-  border-width: 0 1px 1px 0;
-  text-align: right;
-  padding: 0 3px 0 0;
-  width: 1.25em;
-}
 .wind {
   display: inline-block;
   text-align: right;

@@ -1,6 +1,6 @@
 body {
   background: #0A0523 url('../images/stardewbackground.png') no-repeat fixed center center / cover;
-  color: #222;
+  color: var(--black);
 }
 
 /* Utils */
