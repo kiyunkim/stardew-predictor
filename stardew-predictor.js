@@ -4316,8 +4316,26 @@ window.onload = function () {
 		month = Math.floor(offset / 28);
 		monthName = save.seasonNames[month % 4];
 		year = 1 + Math.floor(offset / 112);
-		output += '<table class="calendar"><thead><tr><th colspan="7">' + monthName + ' Year ' + year + '</th></tr>\n';
-		output += '<tr><th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>Sa</th><th>Su</th></tr></thead>\n<tbody>';
+    const seasonIcon = `<img class="season-icon" src="${IMAGE_PATH}/${monthName.toLowerCase()}.png" alt="${monthName}" />`;
+
+		output +=
+    `
+    <table class="calendar table table-bordered border-dark table-responsive">
+      <thead>
+        <tr class="text-center">
+          <th colspan="7" class="season-header ${monthName.toLowerCase()}">${seasonIcon} ${monthName} Year ${year}</th>
+        </tr>
+        <tr class="table-dark text-center">
+          <th>M</th>
+          <th>T</th>
+          <th>W</th>
+          <th>Th</th>
+          <th>F</th>
+          <th>Sa</th>
+          <th>Su</th>
+        </tr>
+      </thead>
+    `;
 		// Note luckCheck was initialized above to 0.2 + save.dailyLuck (and also includes charm buff if applicable)
 		// The base 0.2 could technically vary per can but does not in vanilla Stardew. save.dailyLuck is assumed to be worst
 		// possible value (-0.1) but can be overridden by URL parameters to alter the prediction.
@@ -4507,7 +4525,7 @@ window.onload = function () {
 				} else {
 					results = goodStuff.sort().join(',<br/>');
 				}
-				output += '<td class="compact ' + tclass + '"><span class="date"> ' + (day - offset) + '</span><br/>' +
+				output += '<td class="compact ' + tclass + '"><span class="date"> ' + (day - offset) + '</span>' +
 					'<span class="cell">' + results + '</span></td>';
 			}
 			output += "</tr>\n";

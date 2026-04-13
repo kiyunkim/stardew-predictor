@@ -3,6 +3,16 @@ thead tr:first-child th {
   font-size: 1.2rem;
 }
 
+.compact {
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.cell {
+  display: block;
+  width: 100%;
+}
+
 /* Calendar */
 .calendar {
   table-layout: fixed;

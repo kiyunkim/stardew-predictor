@@ -45,7 +45,7 @@ progress {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 16px 0 12px;
+  margin: 16px 0 8px;
 }
 
 button {
