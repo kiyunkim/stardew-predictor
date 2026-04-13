@@ -1,3 +1,5 @@
 desktop.ini
 *.psp
 temp/
+node_modules/
+app/dist/

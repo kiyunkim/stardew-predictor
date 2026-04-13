@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "globals": {
+    "_": "readonly",
+    "qs": "readonly",
+    "qsa": "readonly"
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
+  "plugins": ["prettier", "only-warn"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+    "no-var": "warn",
+    "one-var": ["warn", "never"],
+    "prefer-const": ["warn", { "destructuring": "any", "ignoreReadBeforeAssign": false }]
+  }
+}
