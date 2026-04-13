@@ -8053,7 +8053,7 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
         icon: DEFAULT_FESTIVAL_IMG,
       },
       83: {
-        name: 'Sprit\'s Eve',
+        name: 'Spirit\'s Eve',
         icon: DEFAULT_FESTIVAL_IMG,
       },
       92: {
@@ -8073,23 +8073,6 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 
     var output = "",
         grDays = [ 5, 6, 7, 14, 15, 16, 18, 23 ],
-        festivalDays = {
-          13: "Egg Festival",
-          24: "Flower Dance",
-          39: "Luau",
-          48: "Trout Derby",
-          49: "Trout Derby",
-          56: "Moonlight Jellies",
-          72: "Stardew Valley Fair",
-          83: "Sprit's Eve",
-          92: "Festival of Ice",
-          96: "Squid Fest",
-          97: "Squid Fest",
-          99: "Night Market",
-          100: "Night Market",
-          101: "Night Market",
-          109: "Winter Star"
-        },
         year,
         rng,
         tclass;
@@ -8121,14 +8104,14 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 		var greenRainDay = grDays[rng.Next(grDays.length)];
 
     output += `
-    <table class="calendar">
+    <table class="calendar table table-bordered border-dark table-responsive">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th colspan="7" class="season-header ${monthName.toLowerCase()}">${seasonIcon} ${monthName} Year ${year}</th>
         </tr>
     `;
     output += `
-      <tr>
+      <tr class="table-dark text-center">
         <th>M</th>
         <th>T</th>
         <th>W</th>
@@ -8200,12 +8183,13 @@ Object.keys(test).forEach(function(key, index) { if (test[key].s > 0 && test[key
 			output += "</tr>\n";
 		}
 		output += `
-      <tr>
-        <td colspan="7" class="legend">
-          Rainy weather. "Rain" could become Storm.
-          Clear weather. "Sun" could become Wind or Snow.
+    <tfoot>
+      <tr class="text-center">
+        <td colspan="7" class="py-1">
+          <img class="icon" src="${IMAGE_PATH}/weather/sun.gif" alt="Sun"> Sun could also be Wind or Snow.
         </td>
       </tr>
+    </tfoot>
     `;
 		output += "</tbody></table>\n";
 

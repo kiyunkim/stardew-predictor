@@ -1,5 +1,3 @@
-
-
 :root {
   --font-size: 14px;
   --grey-100: #f3f3f3;
@@ -20,16 +18,10 @@
   --fall-bg: #fe9e45;
   --winter-bg: #89c7ff;
 
+  --red: #cc0606;
+
 
   --bs-body-font-size: var(--font-size);
   --bs-code-color: #0c53cd;
-  --bs-btn-disabled-bg: var(--grey-400);
-}
-
-.btn {
-  --bs-btn-font-size: var(--font-size);
-  --bs-btn-padding-x: 0.7rem;
-  --bs-btn-padding-y: 0.3rem;
-  --bs-btn-disabled-opacity:0.4;
   --bs-btn-disabled-bg: var(--grey-400);
 }

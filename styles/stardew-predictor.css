@@ -184,10 +184,6 @@ td .resort {
   text-align: center;
   width: 100%;
 }
-td.legend {
-  border: 2px solid black;
-  text-align: center;
-}
 th.day {
   min-width: 12em;
 }
