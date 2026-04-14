@@ -1,3 +1,6 @@
 @use 'bootstrap/scss/bootstrap' as * with (
-  $body-bg: #555
+  $font-size-root: 14px,
+
+  $card-bg: rgb(255 255 255 / 0.85),
+  $card-border-radius: 12px
 );

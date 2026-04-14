@@ -2,13 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./images/favicon.gif" />
+    <link rel="icon" type="image/gif" href="./images/favicon.gif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stardew Predictor</title>
   </head>
   <body>
-    <main id="app">
-      <h1>Hello, world</h1>
+    <main class="container-md p-2">
+      <h1 class="text-white my-3">Stardew Predictor</h1>
+
+      <section class="panel card w-100">
+        <div class="card-body">
+          <h2 class="card-title">About</h2>
+          <p class="card-text">
+            This app simulates the random number generator used in <a href="https://stardewvalley.net/" target="_blank">Stardew Valley</a> and makes "predictions" about the game after reading the save file.
+          </p>
+          <p class="card-text">
+            Most changed &amp; added content from version 1.6 is supported. While the app tries to detect the version in the save and use prediction logic specific to that version, it will spoil some new features regardless. <em>You have been warned.</em>
+          </p>
+          <p class="card-text">
+            Libraries and tools used: <a href="https://github.com/peterolson/BigInteger.js" target="_blank">BigInteger.js</a>, <a href="https://github.com/pierrec/js-xxhash" target="_blank">JS xxHash</a>, <a href="https://github.com/substack/semver-compare" target="_blank">semver-compare</a>, <a href="https://github.com/nodeca/pako" target="_blank">pako</a>.
+            <br>
+            <b>The original predictor is hosted on <a href="https://mouseypounds.github.io/stardew-predictor/" target="_blank">MouseyPound's Github Pages</a></b> and <a href="https://github.com/MouseyPounds/stardew-predictor" target="_blank">the source code repository</a> is on Github.
+          </p>
+        </div>
+      </section>
+
+      <section class="js-save-file panel card w-100 my-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <h2 class="card-title">Save File</h2>
+              <div class="card p-2 d-inline-flex bg-white">
+                <label for="file-input" class="h5">Select a save file</label>
+                <input type="file" id="file-input" class="js-save-file-input" />
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <h3 class="card-title">Advanced Usage</h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

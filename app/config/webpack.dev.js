@@ -33,14 +33,12 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: { api: 'modern', sassOptions: { quietDeps: true } },
-          },
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'postcss-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true, sassOptions: { quietDeps: true } } },
         ],
       },
     ],
