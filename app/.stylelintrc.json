@@ -5,20 +5,5 @@
   ],
   "rules": {
     "prettier/prettier": true
-  },
-  "plugins": ["prettier-plugin-organize-attributes", "@trivago/prettier-plugin-sort-imports"],
-  "printWidth": 200,
-  "singleQuote": true,
-  "arrowParens": "avoid",
-  "quoteProps": "consistent",
-  "bracketSameLine": true,
-  "attributeGroups": ["^id$", "^class$", "^src$", "^width$", "^height$", "^alt$", "^loading$", "^role$", "$DEFAULT", "^data-"],
-  "overrides": [
-    {
-      "files": ["*.html"],
-      "options": {
-        "printWidth": 9999
-      }
-    }
-  ]
+  }
 }

@@ -13,7 +13,7 @@ module.exports = merge(common, {
           'css-loader',
           {
             loader: 'sass-loader',
-            options: { api: 'modern' },
+            options: { api: 'modern', sassOptions: { quietDeps: true } },
           },
         ],
       },

@@ -7,6 +7,9 @@
     "build": "webpack --config config/webpack.prod.js",
     "dev": "webpack --config config/webpack.dev.js"
   },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  },
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
