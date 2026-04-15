@@ -25,3 +25,7 @@
   --bs-code-color: #0c53cd;
   --bs-btn-disabled-bg: var(--grey-400);
 }
+
+.btn {
+  --bs-btn-font-size: var(--font-size);
+}

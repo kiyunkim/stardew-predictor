@@ -4032,8 +4032,28 @@ window.onload = function () {
 		month = Math.floor(offset / 28);
 		monthName = save.seasonNames[month % 4];
 		year = 1 + Math.floor(offset / 112);
-		output += '<table class="calendar"><thead><tr><th colspan="7">' + monthName + ' Year ' + year + '</th></tr>\n';
-		output += '<tr><th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>Sa</th><th>Su</th></tr></thead>\n<tbody>';
+		// output += '<table class="calendar"><thead><tr><th colspan="7">' + monthName + ' Year ' + year + '</th></tr>\n';
+		// output += '<tr><th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>Sa</th><th>Su</th></tr></thead>\n<tbody>';
+
+    const seasonIcon = `<img class="season-icon" src="${IMAGE_PATH}/${monthName.toLowerCase()}.png" alt="${monthName}" />`;
+		output += `
+    <table class="calendar table table-bordered border-dark table-responsive">
+      <thead>
+        <tr class="text-center">
+          <th colspan="7" class="season-header ${monthName.toLowerCase()}">${seasonIcon} ${monthName} Year ${year}</th>
+        </tr>
+        <tr class="table-dark text-center">
+          <th>M</th>
+          <th>T</th>
+          <th>W</th>
+          <th>Th</th>
+          <th>F</th>
+          <th>Sa</th>
+          <th>Su</th>
+        </tr>
+      </thead>
+		<tbody>
+    `;
 		for (week = 0; week < 4; week++) {
 			output += "<tr>";
 			for (weekDay = 1; weekDay < 8; weekDay++) {
@@ -4163,7 +4183,7 @@ window.onload = function () {
 						tclass = "future";
 					}
 				}
-				var mushroomText = '<img src="./images/blank.png" class="small-icon" alt="Mushroom" id="icon_m">&nbsp;';
+				var mushroomText = `<img src="${IMAGE_PATH}/red-mushroom.png" class="icon" alt="Mushroom">&nbsp;`;
 				if (rainbowLights.length === 0) {
 					mushroomText = '<span class="none">' + mushroomText + 'None</span>';
 				} else {
@@ -4174,7 +4194,7 @@ window.onload = function () {
 						mushroomText += rainbowLights.join(',&nbsp;');
 					}
 				}
-				var infestedText = '<img src="blank.png" class="small-icon" alt="Sword" id="icon_i">&nbsp;';
+				var infestedText = `<img src="${IMAGE_PATH}/bat.png" class="icon" alt="Infested">&nbsp;`;
 				if (infestedMonster.length === 0) {
 					infestedText = '<span class="none">' + infestedText + 'None</span>';
 				} else {
@@ -4185,7 +4205,7 @@ window.onload = function () {
 						infestedText += infestedMonster.join(',&nbsp;');
 					}
 				}
-				var slimeText = '<img src="blank.png" class="small-icon" alt="Slime" id="icon_s">&nbsp;';
+				var slimeText = `<img src="${IMAGE_PATH}/slime.png" class="icon" alt="Slime">&nbsp;`;
 				if (infestedSlime.length === 0) {
 					slimeText = '<span class="none">' + slimeText + 'None</span>';
 				} else {
@@ -4196,7 +4216,7 @@ window.onload = function () {
 						slimeText += infestedSlime.join(',&nbsp;');
 					}
 				}
-				var quarryText = '<img src="blank.png" class="small-icon" alt="Skull" id="icon_q">&nbsp;';
+				var quarryText = `<img src="${IMAGE_PATH}/haunted-skull.png" class="icon" alt="Quarry">&nbsp;`;
 				if (quarryLevel.length === 0) {
 					quarryText = '<span class="none">' + quarryText + 'None</span>';
 				} else {
@@ -4218,7 +4238,7 @@ window.onload = function () {
 						dinoText += dinoLevel.join(',&nbsp;');
 					}
 				}
-				output += '<td class="' + tclass + '"><span class="date"> ' + (day - offset) + '</span><br/>' +
+				output += `<td class="${tclass} compact"><span class="date"> ${day - offset}</span><br/>` +
 					'<span class="cell">' + mushroomText +
 					'<br/>' + infestedText +
 					'<br/>' + slimeText +
@@ -4505,7 +4525,7 @@ window.onload = function () {
 					if (trashItem !== "") {
 						var trashText = "<em>" + canList[whichCan] + ":</em> " + trashItem;
 						if (doubleMega) {
-							trashText = '<span class="strong">' + trashText + '</span>';
+							trashText = '<b>' + trashText + '</b>';
 						}
 						goodStuff.push(trashText);
 					}

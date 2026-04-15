@@ -6,6 +6,9 @@ body {
 output {
   display: block;
 }
+hr {
+  margin: 0.5rem 0;
+}
 
 /* Utils */
 .initial_hide {
@@ -14,8 +17,10 @@ output {
 progress {
   width: 100%;
 }
-
-/* Text styling */
+.none {
+  font-style: italic;
+  opacity: 0.5;
+}
 .note {
   font-style: italic;
 }
@@ -98,4 +103,28 @@ button.reset:hover {
   vertical-align: -2px;
   width: 16px;
   height: 16px;
+}
+
+/* tooltip implementation based on code from Andrea Ligios
+   https://stackoverflow.com/questions/7117073/how-to-add-a-tooltip-to-a-div
+   https://jsfiddle.net/AndreaLigios/jtLbpy62/
+ */
+[data-tooltip]:before {
+  position: absolute;
+  content: attr(data-tooltip);
+  opacity: 0;
+  padding: 0.5em;
+  white-space: pre;
+}
+[data-tooltip]:hover:before {
+  opacity: 0.95;
+  background: #fff;
+  box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.3);
+  margin-top: -1.5em;
+  margin-left: 0.5em;
+  border-radius: 5px;
+  z-index: 2;
+}
+[data-tooltip]:not([data-tooltip-persistent]):before {
+  pointer-events: none;
 }
