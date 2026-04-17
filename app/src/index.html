@@ -10,7 +10,7 @@
     <main class="container-md p-2">
       <h1 class="text-white my-3">Stardew Predictor</h1>
 
-      <section class="panel card w-100">
+      <section class="panel card">
         <div class="card-body">
           <h2 class="card-title">About</h2>
           <p class="card-text">
@@ -27,22 +27,247 @@
         </div>
       </section>
 
-      <section class="js-save-file panel card w-100 my-3">
+      <section class="js-save-file panel card my-3">
         <div class="card-body">
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <h2 class="card-title">Save File</h2>
-              <div class="card p-2 d-inline-flex bg-white">
-                <label for="file-input" class="h5">Select a save file</label>
-                <input type="file" id="file-input" class="js-save-file-input" />
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <h3 class="card-title">Advanced Usage</h3>
+          <h2 class="card-title">Save File</h2>
+          <div class="card p-2 d-inline-flex bg-white">
+            <input type="file" class="js-save-file-input file-input" />
+          </div>
+          <hr>
+          <h3 class="card-title">Advanced Usage</h3>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#urlParams" aria-expanded="false" aria-controls="urlParams">
+            View URL Parameters
+          </button>
+          <div class="collapse mt-2" id="urlParams">
+            <div class="url-params-container">
+              <table class="table table-striped table-bordered small">
+                <thead>
+                  <tr class="table-dark position-sticky top-0">
+                    <th>Name</th>
+                    <th>Abbrev</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Version</th>
+                    <td><code>v</code></td>
+                    <td>Semver identifier, e.g. `1.6.0`</td>
+                    <td>Version to use for predictions</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Game Seed</th>
+                    <td><code>id</code></td>
+                    <td>Integer</td>
+                    <td>Game seed</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Days Played</th>
+                    <td><code>dp</code></td>
+                    <td>Integer</td>
+                    <td>Changes where calendar views start</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Day Adjust</th>
+                    <td><code>da</code></td>
+                    <td>Integer</td>
+                    <td>Offsets days played by the given amount to deal with old multiplayer bugs</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Daily Luck</th>
+                    <td><code>dl</code></td>
+                    <td>Float</td>
+                    <td>Sets daily luck for garbage checks; will be forced into range [-0.1, 0.1]</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Luck Level</th>
+                    <td><code>ll</code></td>
+                    <td>Integer</td>
+                    <td>Sets luck buff level (from food, rings, etc.)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Deepest Mine Level</th>
+                    <td><code>dml</code></td>
+                    <td>Integer</td>
+                    <td>Mine level reached</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Visits Until Y1 Guarantee</th>
+                    <td><code>vg</code></td>
+                    <td>Integer</td>
+                    <td># of Traveling Merchant visits until the Y1 guarantee</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Geodes Cracked</th>
+                    <td><code>gc</code></td>
+                    <td>Array</td>
+                    <td># of geodes cracked</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mystery Boxes Opened</th>
+                    <td><code>mb</code></td>
+                    <td>Array</td>
+                    <td># of mystery boxes opened</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Times Enchanted</th>
+                    <td><code>te</code></td>
+                    <td>Array</td>
+                    <td># of times tools have been enchanted</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Trash Cans Checked</th>
+                    <td><code>tc</code></td>
+                    <td>Array</td>
+                    <td># of trash cans checked already</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Times Fed Raccoons</th>
+                    <td><code>tfr</code></td>
+                    <td>Integer</td>
+                    <td># of times the raccoon has been helped</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Can Have Children</th>
+                    <td><code>chc</code></td>
+                    <td>Boolean</td>
+                    <td>Whether the player can have children</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Quarry Unlocked</th>
+                    <td><code>qu</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Desert Unlocked</th>
+                    <td><code>du</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Greenhouse Unlocked</th>
+                    <td><code>gu</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Community Center Complete</th>
+                    <td><code>cc</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Joja Community Center Complete</th>
+                    <td><code>jc</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Theater Unlocked</th>
+                    <td><code>tu</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Has Furnace Recipe</th>
+                    <td><code>hfr</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Has Special Charm</th>
+                    <td><code>hsc</code></td>
+                    <td>Boolean</td>
+                    <td>Special Luck Charm</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Has Garbage Book</th>
+                    <td><code>hgb</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Got Mystery Book</th>
+                    <td><code>gmb</code></td>
+                    <td>Boolean</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Leo Moved</th>
+                    <td><code>leo</code></td>
+                    <td>Boolean</td>
+                    <td>If Leo has moved to the Valley</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Hardmode Mines</th>
+                    <td><code>hm</code></td>
+                    <td>Boolean</td>
+                    <td>If mines are set for hard difficulty</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Qi Crops Active</th>
+                    <td><code>qc</code></td>
+                    <td>Boolean</td>
+                    <td>If Qi Crops special order is active</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Use Legacy Random</th>
+                    <td><code>leg</code></td>
+                    <td>Boolean</td>
+                    <td>If save uses Legacy RNG seeding</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="panel card my-3">
+        <div class="card-body">
+          <h2 class="card-title">Changelog</h2>
+          <table class="table table-striped table-bordered small">
+            <thead>
+              <tr class="table-dark">
+                <th>Date</th>
+                <th>Version</th>
+                <th>Changes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">2026-04-17</th>
+                <td>1.0.0</td>
+                <td>Initial release</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel card footer my-3">
+        <div class="card-body">
+          <b>Stardew Apps by MouseyPounds:</b>
+          <ul class="list-unstyled ">
+            <li><a href="https://mouseypounds.github.io/stardew-checkup/" target="_blank">Stardew Checkup</a></li>
+            <li><a href="https://mouseypounds.github.io/stardew-predictor/" target="_blank">Stardew Predictor</a></li>
+            <li><a href="https://mouseypounds.github.io/stardew-fair-helper/" target="_blank">Stardew Fair Helper</a></li>
+          </ul>
+          <b class="mt-2 d-block">Other Stardew Valley resources:</b>
+          <ul class="list-unstyled">
+            <li><a href="https://stardewvalley.net/" target="_blank">Website</a></li>
+            <li><a href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank">Steam Page</a></li>
+            <li><a href="https://stardewvalleywiki.com/Stardew_Valley_Wiki" target="_blank">Wiki</a></li>
+            <li><a href="https://forums.stardewvalley.net/index.php" target="_blank">Forums</a></li>
+            <li><a href="https://www.reddit.com/r/StardewValley" target="_blank">Subreddit</a></li>
+            <li><a href="https://discordapp.com/invite/StardewValley" target="_blank">Discord</a></li>
+          </ul>
+        </div>
+      </section>
+
     </main>
+
   </body>
 </html>
